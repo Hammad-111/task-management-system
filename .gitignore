@@ -4,6 +4,7 @@ __pycache__/
 *.db
 
 backend/venv/lib/
+backend/venv/lib64
 backend/venv/bin/
 backend/venv/include/
 backend/venv/pyvenv.cfg
@@ -12,11 +13,12 @@ backend/venv/.pytest_cache/
 # frontend
 frontend/node_modules/
 frontend/dist/
+frontend/.vite/
 
 # ide
 .vscode/
 .idea/
 .DS_Store
 
-# readme baad mein add karenge
-README.md
+# meri apni tayari ki file, push nahi karni
+interview-prep.pdf
