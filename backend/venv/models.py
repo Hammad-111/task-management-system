@@ -19,11 +19,11 @@ class Task(Base):
     __tablename__ = "tasks"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, nullable=False)
+    title = Column(String, nullable=False, index=True)
     description = Column(Text, default="")
-    status = Column(String, default="Todo")
+    status = Column(String, default="Todo", index=True)
     due_date = Column(DateTime, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
-    user_id = Column(Integer, ForeignKey("users.id"))
+    user_id = Column(Integer, ForeignKey("users.id"), index=True)
 
     owner = relationship("User", back_populates="tasks")
