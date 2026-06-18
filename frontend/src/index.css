@@ -109,6 +109,11 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
 }
 
 .btn-primary {
@@ -214,6 +219,11 @@ body {
   padding: 15px;
   border-radius: 6px;
   border: 1px solid #e0e0e0;
+  transition: box-shadow 0.15s;
+}
+
+.task-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 [data-theme="dark"] .task-card {
@@ -336,16 +346,39 @@ body {
   cursor: grab;
 }
 
+/* tablet ke liye board do columns me */
+@media (max-width: 850px) {
+  .board {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* mobile */
 @media (max-width: 600px) {
+  .dashboard {
+    padding: 15px;
+  }
   .board {
     grid-template-columns: 1fr;
   }
   .toolbar {
     flex-direction: column;
+    align-items: stretch;
+  }
+  .search-form {
+    width: 100%;
+  }
+  .toolbar select,
+  .toolbar .btn {
+    width: 100%;
   }
   .header {
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
+  }
+  .task-meta {
+    flex-direction: column;
+    gap: 4px;
   }
 }
