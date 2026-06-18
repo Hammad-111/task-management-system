@@ -23,8 +23,11 @@ Start the backend first:
 cd backend/venv
 source bin/activate
 pip install -r ../requirements.txt
+cp .env.example .env
 uvicorn main:app --reload --port 8000
 ```
+
+The `.env` file holds the JWT secret key (there is a `.env.example` to copy from).
 
 Backend runs on http://localhost:8000. You can also try the APIs from swagger:
 http://localhost:8000/docs
@@ -78,6 +81,16 @@ All `/tasks` APIs need a token in the header like this:
 
 Login doesn't take json, it takes form data (the OAuth2 one). Everything else is json.
 
+## Tests
+
+There are some backend tests written with pytest:
+
+```
+cd backend/venv
+source bin/activate
+pytest tests/ -v
+```
+
 ## Database
 
 Uses SQLite. Two tables are created:
@@ -94,4 +107,5 @@ Each user only sees their own tasks, not anyone else's.
 - token expires after 24 hours
 - description and due_date are both optional
 - used SQLite because it needs no install/setup
+- the secret key is kept in a .env file, not in the code
 - backend code lives inside the backend/venv folder
