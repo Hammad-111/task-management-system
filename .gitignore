@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 *.db
+.env
 
 backend/venv/lib/
 backend/venv/lib64

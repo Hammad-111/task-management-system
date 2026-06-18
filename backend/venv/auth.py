@@ -1,14 +1,19 @@
+import os
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta
 from jose import jwt, JWTError
+from dotenv import load_dotenv
 import bcrypt
 
 from database import get_db
 from models import User
 
-SECRET_KEY = "my-secret-key-123"
+load_dotenv()
+
+# secret ko .env se uthate hain, na mile to default (dev ke liye)
+SECRET_KEY = os.getenv("SECRET_KEY", "my-secret-key-123")
 ALGORITHM = "HS256"
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
